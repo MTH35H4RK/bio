@@ -1,1 +1,154 @@
-fin a
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Notebook</title>
+    <style>
+        body {
+            font-family: 'Bernard MT Condensed', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+        #sidebar {
+            background-color: #7fa2b2;
+            color: #ffffff;
+            width: 250px;
+            height: 100vh;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #sidebar img {
+            height: auto;
+            margin-bottom: 20px;
+        }
+        #sidebar .logo {
+            width: 290px;
+            height: auto; /* Set the height for Untitled-8.png */
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+        #sidebar li {
+            font-size: 30px;
+            margin-bottom: 15px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #sidebar li:hover {
+            background-color: #7fa2b2;
+            transition: background-color 0.3s ease;
+        }
+        .half-out {
+            position: absolute;
+            width: 100px; /* Set your desired width */
+            height: 100px; /* Set the height smaller than the logo */
+            left: -64px; /* Adjusted based on half of the image width */
+            top: 20px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 70%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            padding: 20px;
+            overflow-y: auto; /* Enable scrollbar for content */
+            z-index: 9999;
+            font-family: 'Calisto MT', sans-serif; 
+        }
+        .overlay button {
+            display: block;
+            width: 100px;
+            padding: 10px;
+            margin: 20px auto 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .overlay button.yellow {
+            background-color: #FFD700; /* Yellow color for Matériels button */
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <img src="Untitled-7.png" alt="Additional Image" class="half-out"> <!-- New image half out of the sidebar -->
+        <img src="Untitled-8.png" alt="Lab Logo" class="logo"> <!-- Existing image with specific class for styling -->
+        <ul>
+            <li onclick="showOverlay('contexte')">Contexte</li>
+            <li onclick="showOverlay('materiels')">Matériels</li>
+            <li onclick="showOverlay('prerequis')">Prérequis</li>
+            <li onclick="showOverlay('protocole')">Protocole</li>
+            <li onclick="showOverlay('conclusion')">Conclusion</li>
+        </ul>
+    </div>
+     <!-- Overlay content for Contexte -->
+     <div id="overlay-contexte" class="overlay">
+        <h2> 1.  Contexte</h2>
+        <img src="contexte324.jpg" height="auto" width="800px">
+                <button onclick="showOverlay('materiels')">suivant</button>
+    </div>
+
+    <!-- Overlay content for Matériels -->
+    <div id="overlay-materiels" class="overlay">
+        <h2>2. Matériels</h2>
+        <img src="materiels.jpg" height="auto" width="800px">
+        
+        <button class="yellow" onclick="showOverlay('prerequis')">suivant</button>
+    </div>
+
+    <!-- Overlay content for Prérequis -->
+    <div id="overlay-prerequis" class="overlay">
+        <h2>3. Prérequis</h2>
+        <img src="prerequis.jpg" height="auto" width="800px">
+    </div>
+    <!-- Add your JavaScript functionality here -->
+    <script>
+        function showOverlay(type) {
+            // Hide all overlays first
+            document.querySelectorAll('.overlay').forEach(function(el) {
+                el.classList.remove('show');
+            });
+
+            // Show the selected overlay
+            document.getElementById('overlay-' + type).classList.add('show');
+        }
+    </script>
+    <script>
+        // Example: Highlight sections on hover or click
+        const sidebarItems = document.querySelectorAll('#sidebar li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.backgroundColor = '#00891e';
+            });
+            item.addEventListener('mouseout', () => {
+                item.style.backgroundColor = '#7fa2b2';
+            });
+        });
+    </script>
+    
+</body>
+</html>
+
