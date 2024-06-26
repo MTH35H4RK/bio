@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Notebook</title>
+    <title>BIOSIM LAB - ERIPDS</title>
+    <link rel="icon" href="/favicon.jpg.png" type="image/x-icon">
+
     <style>
         body {
             font-family: 'Bernard MT Condensed', sans-serif;
@@ -17,8 +19,8 @@
             background-color: #7fa2b2;
             color: #ffffff;
             width: 250px;
-            height: 100vh;
-            padding: 20px;
+            height: 100%;
+            padding-left: 20px;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
             position: fixed;
             top: 0;
@@ -26,23 +28,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between; /* Ensures items are spaced */
             z-index: 2;
         }
 
         #sidebar img {
             height: auto;
             margin-bottom: 20px;
+            
         }
 
         #sidebar .logo {
             width: 290px;
             height: auto;
+            padding: -10px;
+
+            
         }
 
         #sidebar ul {
             list-style: none;
             padding: 0;
             width: 100%;
+            flex-grow: 1; /* Allows the list to take up remaining space */
         }
 
         #sidebar li {
@@ -65,7 +73,7 @@
             height: 100px;
             left: -64px;
             top: 20px;
-            z-index: auto;
+            z-index: 1;
         }
 
         .overlay {
@@ -83,6 +91,10 @@
             font-family: 'Calisto MT', sans-serif;
             z-index: 1;
             box-sizing: border-box;
+        }
+
+        .BBoverlay {
+            display: none;
         }
 
         .overlay-content {
@@ -121,6 +133,13 @@
             position: fixed;
             overflow: hidden;
         }
+
+        #copyright {
+            font-family: 'Bernard MT Condensed', sans-serif;
+            font-size: 16px;
+            text-align: left;
+            padding-top: 20px;
+        }
     </style>
 </head>
 
@@ -135,10 +154,11 @@
             <li onclick="showOverlay('protocole')">Protocole</li>
             <li onclick="showOverlay('conclusion')">Conclusion</li>
         </ul>
+        <div id="copyright">Copyright © 2024 by ERIPDS</div>
     </div>
-    
-    <div id="overlay-bienvenue" >
-        <img src="cover.png" width="81.9%">
+
+    <div id="overlay-bienvenue" class="BBoverlay">
+        <img src="cover.png" width="83.9%">
     </div>
 
     <div id="overlay-contexte" class="overlay">
