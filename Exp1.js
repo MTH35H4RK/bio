@@ -3,9 +3,9 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"Exp1_atlas_1", frames: [[0,0,1680,1838]]},
+		{name:"Exp1_atlas_1", frames: [[2010,0,34,72],[2010,74,34,72],[1457,0,551,354],[0,0,1455,966],[1457,356,374,469]]},
 		{name:"Exp1_atlas_2", frames: [[0,0,1434,1827]]},
-		{name:"Exp1_atlas_3", frames: [[2010,0,34,72],[2010,74,34,72],[1457,0,551,354],[0,0,1455,966],[1457,356,374,469]]}
+		{name:"Exp1_atlas_3", frames: [[0,0,1680,1838]]}
 ];
 
 
@@ -36,14 +36,14 @@ p.nominalBounds = new cjs.Rectangle(0,0,2166,2104);
 
 
 (lib.Bitmap25 = function() {
-	this.initialize(ss["Exp1_atlas_3"]);
+	this.initialize(ss["Exp1_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Bitmap26 = function() {
-	this.initialize(ss["Exp1_atlas_3"]);
+	this.initialize(ss["Exp1_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
@@ -62,7 +62,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,1266,2703);
 
 
 (lib.blanket = function() {
-	this.initialize(ss["Exp1_atlas_3"]);
+	this.initialize(ss["Exp1_atlas_1"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
@@ -81,7 +81,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,3668,657);
 
 
 (lib.dog1 = function() {
-	this.initialize(ss["Exp1_atlas_3"]);
+	this.initialize(ss["Exp1_atlas_1"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
@@ -143,14 +143,14 @@ p.nominalBounds = new cjs.Rectangle(0,0,4426,1520);
 
 
 (lib.muscle = function() {
-	this.initialize(ss["Exp1_atlas_3"]);
+	this.initialize(ss["Exp1_atlas_1"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.nerf1pngcopy = function() {
-	this.initialize(ss["Exp1_atlas_1"]);
+	this.initialize(ss["Exp1_atlas_3"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
@@ -1029,28 +1029,11 @@ if (reversed == null) { reversed = false; }
 		}
 	}
 	this.frame_10 = function() {
-		/* Stop at This Frame
-		The  timeline will stop/pause at the frame where you insert this code.
-		Can also be used to stop/pause the timeline of movieclips.
-		*/
-		
 		this.stop();
 		
-		/* Click to Go to Frame and Play
-		Clicking on the specified symbol instance moves the playhead to the specified frame in the timeline and continues playback from that frame.
-		Can be used on the main timeline or on movie clip timelines.
-		
-		Instructions:
-		1. Replace the number 5 in the code below with the frame number you would like the playhead to move to when the symbol instance is clicked.
-		2.Frame numbers in EaselJS start at 0 instead of 1
-		*/
-		
-		this.terminer.addEventListener("click", fl_ClickToGoToAndPlayFromFrame_4.bind(this));
-		
-		function fl_ClickToGoToAndPlayFromFrame_4()
-		{
-			this.gotoAndPlay(12);
-		}
+		this.terminer.addEventListener("click", function() {
+		    window.location.href = 'Exp2.html'; 
+		});
 	}
 
 	// actions tween:
