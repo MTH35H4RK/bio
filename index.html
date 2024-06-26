@@ -37,7 +37,6 @@
         #sidebar .logo {
             width: 290px;
             height: auto;
-            /* Set the height for Untitled-8.png */
         }
 
         #sidebar ul {
@@ -63,11 +62,8 @@
         .half-out {
             position: absolute;
             width: 100px;
-            /* Set your desired width */
             height: 100px;
-            /* Set the height smaller than the logo */
             left: -64px;
-            /* Adjusted based on half of the image width */
             top: 20px;
             z-index: auto;
         }
@@ -84,25 +80,18 @@
             padding: 20px;
             overflow-y: auto;
             text-align: center;
-            /* Center contents horizontally */
             font-family: 'Calisto MT', sans-serif;
             z-index: 1;
-            /* Ensure overlay appears above sidebar */
             box-sizing: border-box;
-            /* Ensure padding is included in width */
         }
-      
+
         .overlay-content {
             display: inline-block;
-            /* Allow content to center with text-align */
             max-width: 90%;
-            /* Adjust maximum width as needed */
             max-height: 90%;
-            /* Adjust maximum height as needed */
             overflow-y: auto;
-            /* Enable scrolling if content exceeds max height */
         }
-        
+
         .overlay button {
             display: block;
             width: 100px;
@@ -118,31 +107,27 @@
 
         .overlay button.yellow {
             background-color: #FFD700;
-            /* Yellow color for Matériels button */
         }
-        
+
         .show {
             display: block;
         }
 
         iframe {
             border: none;
-            /* Optional: removes the border */
             display: block;
             width: 80%;
-            height: 97%;
+            height: 95%;
             position: fixed;
-            /* Allows it to fill the parent container */
             overflow: hidden;
-            /* This hides the scrollbar */
         }
     </style>
 </head>
 
 <body>
     <div id="sidebar">
-        <img src="Untitled-7.png" alt="Additional Image" class="half-out"> <!-- New image half out of the sidebar -->
-        <img src="Untitled-8.png" alt="Lab Logo" class="logo"> <!-- Existing image with specific class for styling -->
+        <img src="Untitled-7.png" alt="Additional Image" class="half-out">
+        <img src="Untitled-8.png" alt="Lab Logo" class="logo">
         <ul>
             <li onclick="showOverlay('contexte')">Contexte</li>
             <li onclick="showOverlay('materiels')">Matériels</li>
@@ -151,60 +136,70 @@
             <li onclick="showOverlay('conclusion')">Conclusion</li>
         </ul>
     </div>
-    <!-- Overlay content for Contexte -->
+
     <div id="overlay-contexte" class="overlay">
-        <h2> 1. Contexte</h2>
+        <h2>1. Contexte</h2>
         <img src="contexte324.jpg" height="auto" width="900px">
         <button onclick="showOverlay('materiels')">suivant</button>
     </div>
 
-    <!-- Overlay content for Matériels -->
     <div id="overlay-materiels" class="overlay">
         <h2>2. Matériels</h2>
         <img src="materiels.jpg" height="auto" width="800px">
-
         <button class="yellow" onclick="showOverlay('prerequis')">suivant</button>
     </div>
 
-    <!-- Overlay content for Prérequis -->
     <div id="overlay-prerequis" class="overlay">
         <h2>3. Prérequis</h2>
         <img src="prerequis.jpg" height="auto" width="800px">
         <button onclick="showOverlay('protocole')">suivant</button>
-
     </div>
 
     <div id="overlay-protocole" class="overlay">
         <h2>4. Protocole</h2>
-        <iframe src="Exp1.html"  frameborder="0"></iframe>
+        <iframe src="Exp1.html" frameborder="0"></iframe>
     </div>
 
-    <!-- Add your JavaScript functionality here -->
+    <div id="overlay-conclusion" class="overlay">
+        <h2>5. Conclusion</h2>
+        <iframe src="conclusion.html" frameborder="0"></iframe>
+    </div>
+
     <script>
         function showOverlay(type) {
-            // Hide all overlays first
             document.querySelectorAll('.overlay').forEach(function (el) {
                 el.classList.remove('show');
             });
-
-            // Show the selected overlay
-            document.getElementById('overlay-' + type).classList.add('show');
+            var overlay = document.getElementById('overlay-' + type);
+            overlay.classList.add('show');
+            var params = new URLSearchParams(window.location.search);
+            params.set('window', type);
+            history.pushState({}, '', window.location.pathname + '?' + params.toString());
         }
+
+        function handleIframeMessage(event) {
+            if (event.origin !== window.location.origin) {
+                return;
+            }
+            if (event.data === 'xdxd55xd') {
+                showOverlay('conclusion');
+            }
+        }
+
+        window.addEventListener('message', handleIframeMessage, false);
     </script>
+
     <script>
         function centerOverlay() {
             var overlay = document.querySelector('.overlay');
             var overlayContent = document.querySelector('.overlay-content');
-
-            // Center vertically
             overlayContent.style.marginTop = Math.max((overlay.clientHeight - overlayContent.clientHeight) / 2, 0) + 'px';
         }
 
-        // Call centerOverlay() initially and on window resize
         window.addEventListener('resize', centerOverlay);
     </script>
+
     <script>
-        // Example: Highlight sections on hover or click
         const sidebarItems = document.querySelectorAll('#sidebar li');
         sidebarItems.forEach(item => {
             item.addEventListener('mouseover', () => {
