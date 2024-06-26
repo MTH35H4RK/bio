@@ -126,7 +126,7 @@
 
 <body>
     <div id="sidebar">
-        <img src="Untitled-7.png" alt="Additional Image" class="half-out">
+        <img onload="showOverlay('bienvenue')" src="Untitled-7.png" alt="Additional Image" class="half-out">
         <img src="Untitled-8.png" alt="Lab Logo" class="logo">
         <ul>
             <li onclick="showOverlay('contexte')">Contexte</li>
@@ -135,6 +135,10 @@
             <li onclick="showOverlay('protocole')">Protocole</li>
             <li onclick="showOverlay('conclusion')">Conclusion</li>
         </ul>
+    </div>
+    
+    <div id="overlay-bienvenue" class="">
+        <img src="cover.jpg" height="100%" width="82%">
     </div>
 
     <div id="overlay-contexte" class="overlay">

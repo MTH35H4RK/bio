@@ -85,6 +85,12 @@ lib.ssMetadata = [
 
 
 
+(lib.saaahm = function() {
+	this.initialize(img.saaahm);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,2277,1007);
+
+
 (lib.sahm = function() {
 	this.initialize(ss["conclusion_atlas_52"]);
 	this.gotoAndStop(1);
@@ -449,12 +455,6 @@ lib.ssMetadata = [
 
 
 
-(lib.Untitled3pngcopy = function() {
-	this.initialize(img.Untitled3pngcopy);
-}).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,2277,1007);
-
-
 (lib.Untitled4pngcopy = function() {
 	this.initialize(img.Untitled4pngcopy);
 }).prototype = p = new cjs.Bitmap();
@@ -574,7 +574,7 @@ if (reversed == null) { reversed = false; }
 	this.text_1.parent = this;
 	this.text_1.setTransform(1206.9,988);
 
-	this.instance_2 = new lib.Untitled3pngcopy();
+	this.instance_2 = new lib.saaahm();
 	this.instance_2.setTransform(97,986,0.0662,0.0662);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape},{t:this.instance},{t:this.text,p:{x:1744.45,y:453.5,text:"stimuler la peau",color:"#FFFFFF",lineWidth:208}}]}).to({state:[{t:this.instance_2},{t:this.text_1},{t:this.text,p:{x:506.85,y:988,text:"l'influx nerveux moteur",color:"#D1041E",lineWidth:514}},{t:this.instance_1}]},1).wait(50));
@@ -725,7 +725,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Untitled3pngcopy.png", id:"Untitled3pngcopy"},
+		{src:"images/saaahm.png", id:"saaahm"},
 		{src:"images/Untitled4pngcopy.png", id:"Untitled4pngcopy"},
 		{src:"images/conclusion_atlas_1.png", id:"conclusion_atlas_1"},
 		{src:"images/conclusion_atlas_2.png", id:"conclusion_atlas_2"},
